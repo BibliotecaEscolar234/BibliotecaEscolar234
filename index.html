@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca Escolar</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.21.0/dist/umd/supabase.min.js"></script>
     <style>
         /* Estilos para el cuerpo y el fondo */
         body {
@@ -141,38 +142,36 @@
         }
 
         /* Estilos para los resultados */
-.results {
-    margin-top: 20px;
-    margin-left: 20%; /* Agregar margen a la izquierda para mover el contenedor hacia la derecha */
-    width: 60%; /* Definir un ancho para que ocupe menos espacio y se vea centrado a la derecha */
-}
+        .results {
+            margin-top: 20px;
+            margin-left: 20%; /* Agregar margen a la izquierda para mover el contenedor hacia la derecha */
+            width: 60%; /* Definir un ancho para que ocupe menos espacio y se vea centrado a la derecha */
+        }
 
-/* Estilos para cada resultado */
-.result {
-    border: 1px solid #8B0000;
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Hacer que cada resultado ocupe todo el ancho del contenedor */
-}
+        /* Estilos para cada resultado */
+        .result {
+            border: 1px solid #8B0000;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%; /* Hacer que cada resultado ocupe todo el ancho del contenedor */
+        }
 
-/* Estilos para la carga */
-.loading-dots {
-    display: none;
-}
+        /* Estilos para la carga */
+        .loading-dots {
+            display: none;
+        }
 
-.loading-dots span {
-    display: inline-block;
-    height: 12px;
-    width: 12px;
-    margin: 3px;
-    background-color: #333;
-    border-radius: 50%;
-    animation: blink 1s infinite;
-}
-
-
+        .loading-dots span {
+            display: inline-block;
+            height: 12px;
+            width: 12px;
+            margin: 3px;
+            background-color: #333;
+            border-radius: 50%;
+            animation: blink 1s infinite;
+        }
 
         @keyframes blink {
             0%, 100% {
@@ -463,65 +462,86 @@
     </footer>
 
     <script>
-                // Definir los libros
-                const libros = [
-                {
-                    nombre: "Libro 1",
-                    autor: "Autor 1",
-                    editorial: "Editorial 1",
-                    publicacion: "2020-01-01",
-                    codigo: "abc123",
-                    salon: "A1",
-                    categoria: "Aventura"
-                },
-                {
-                    nombre: "Libro 2",
-                    autor: "Autor 2",
-                    editorial: "Editorial 2",
-                    publicacion: "2021-06-15",
-                    codigo: "xyz789",
-                    salon: "B2",
-                    categoria: "Fantasía"
-                }
-            ];
-    
-            // Función de búsqueda
-            document.getElementById("form-buscar").addEventListener("submit", function(event) {
-                event.preventDefault();
-    
-                let query = document.getElementById("busqueda").value.toLowerCase();
-                let resultados = libros.filter(libro => {
-                    return libro.nombre.toLowerCase().includes(query) ||
-                        libro.autor.toLowerCase().includes(query) ||
-                        libro.editorial.toLowerCase().includes(query) ||
-                        libro.categoria.toLowerCase().includes(query);
-                });
-    
-                // Mostrar resultados
-                let resultadosDiv = document.getElementById("resultados-busqueda");
-                resultadosDiv.innerHTML = ""; // Limpiar resultados previos
-    
-                if (resultados.length > 0) {
-                    resultados.forEach(libro => {
-                        let resultDiv = document.createElement("div");
-                        resultDiv.classList.add("result");
-                        resultDiv.innerHTML = `
-                            <h3>${libro.nombre}</h3>
-                            <p><strong>Autor:</strong> ${libro.autor}</p>
-                            <p><strong>Editorial:</strong> ${libro.editorial}</p>
-                            <p><strong>Publicación:</strong> ${libro.publicacion}</p>
-                            <p><strong>Código:</strong> ${libro.codigo}</p>
-                            <p><strong>Salón:</strong> ${libro.salon}</p>
-                            <p><strong>Categoría:</strong> ${libro.categoria}</p>
-                        `;
-                        resultadosDiv.appendChild(resultDiv);
-                    });
-                } else {
-                    resultadosDiv.innerHTML = "<p>No se encontraron libros que coincidan con tu búsqueda.</p>";
-                }
-            });
+        // Paso 1: Configurar cliente Supabase
+        const supabase = supabase.createClient(
+            "https://mxydejumvmtcyczhsnmw.supabase.co", // URL de tu proyecto Supabase
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im14eWRlanVtdm10Y3ljemhzbm13Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzc3NzE5NDEsImV4cCI6MjA1MzM0Nzk0MX0.3MyW650iBh5BC53eJTqcqnV08oDPoJIbzVaDwXmTs4I" // Tu clave API
+        );
 
-        // Función para alternar la visibilidad de las respuestas de las preguntas frecuentes
+        // Paso 2: Función para realizar la búsqueda de libros
+        document.getElementById("form-buscar").addEventListener("submit", async function(event) {
+            event.preventDefault();
+
+            let query = document.getElementById("busqueda").value.toLowerCase();
+            
+            // Consultar la base de datos en Supabase
+            const { data: libros, error } = await supabase
+                .from('libros')  // Nombre de tu tabla en Supabase
+                .select('*')
+                .ilike('nombre', `%${query}%`)  // Buscar por nombre
+                .or(`autor.ilike.%${query}%,categoria.ilike.%${query}%`); // Buscar por autor o categoría
+
+            let resultadosDiv = document.getElementById("resultados-busqueda");
+            resultadosDiv.innerHTML = "";  // Limpiar resultados previos
+
+            if (libros && libros.length > 0) {
+                libros.forEach(libro => {
+                    let resultDiv = document.createElement("div");
+                    resultDiv.classList.add("result");
+                    resultDiv.innerHTML = `
+                        <h3>${libro.nombre}</h3>
+                        <p><strong>Autor:</strong> ${libro.autor}</p>
+                        <p><strong>Editorial:</strong> ${libro.editorial}</p>
+                        <p><strong>Publicación:</strong> ${libro.publicacion}</p>
+                        <p><strong>Código:</strong> ${libro.codigo}</p>
+                        <p><strong>Salón:</strong> ${libro.salon}</p>
+                        <p><strong>Categoría:</strong> ${libro.categoria}</p>
+                    `;
+                    resultadosDiv.appendChild(resultDiv);
+                });
+            } else {
+                resultadosDiv.innerHTML = "<p>No se encontraron libros que coincidan con tu búsqueda.</p>";
+            }
+        });
+
+        // Paso 3: Función para agregar libros a Supabase
+        document.getElementById("form-agregar").addEventListener("submit", async function(event) {
+            event.preventDefault();
+
+            // Obtener los valores del formulario
+            const nombreLibro = document.getElementById("nombre-libro").value;
+            const autor = document.getElementById("autor").value;
+            const editorial = document.getElementById("editorial").value;
+            const publicacion = document.getElementById("publicacion").value;
+            const codigo = document.getElementById("codigo").value;
+            const salon = document.getElementById("salon").value;
+            const categoria = document.getElementById("categoria").value;
+
+            // Insertar el libro en la base de datos de Supabase
+            const { data, error } = await supabase
+                .from('libros')  // Nombre de la tabla
+                .insert([
+                    {
+                        nombre: nombreLibro,
+                        autor: autor,
+                        editorial: editorial,
+                        publicacion: publicacion,
+                        codigo: codigo,
+                        salon: salon,
+                        categoria: categoria
+                    }
+                ]);
+
+            if (error) {
+                console.error("Error al agregar el libro:", error);
+            } else {
+                alert("Libro agregado correctamente!");
+                // Limpiar el formulario
+                document.getElementById("form-agregar").reset();
+            }
+        });
+
+        // Paso 4: Función para mostrar/ocultar respuestas de preguntas frecuentes
         function toggleAnswer(index) {
             const answers = document.querySelectorAll('.respuesta');
             answers[index].style.display = answers[index].style.display === 'none' ? 'block' : 'none';
