@@ -473,7 +473,11 @@
             event.preventDefault();
 
             let query = document.getElementById("busqueda").value.toLowerCase();
-            
+
+            // Mostrar el icono de carga mientras se realiza la consulta
+            document.querySelector(".loading-dots").style.display = "inline-block";
+            document.getElementById("resultados-busqueda").innerHTML = ""; // Limpiar resultados previos
+
             // Consultar la base de datos en Supabase
             const { data: libros, error } = await supabase
                 .from('libros')  // Nombre de tu tabla en Supabase
@@ -481,8 +485,10 @@
                 .ilike('nombre', `%${query}%`)  // Buscar por nombre
                 .or(`autor.ilike.%${query}%,categoria.ilike.%${query}%`); // Buscar por autor o categoría
 
+            // Ocultar el icono de carga después de obtener los resultados
+            document.querySelector(".loading-dots").style.display = "none";
+
             let resultadosDiv = document.getElementById("resultados-busqueda");
-            resultadosDiv.innerHTML = "";  // Limpiar resultados previos
 
             if (libros && libros.length > 0) {
                 libros.forEach(libro => {
@@ -520,20 +526,19 @@
             // Insertar el libro en la base de datos de Supabase
             const { data, error } = await supabase
                 .from('libros')  // Nombre de la tabla
-                .insert([
-                    {
-                        nombre: nombreLibro,
-                        autor: autor,
-                        editorial: editorial,
-                        publicacion: publicacion,
-                        codigo: codigo,
-                        salon: salon,
-                        categoria: categoria
-                    }
-                ]);
+                .insert([{
+                    nombre: nombreLibro,
+                    autor: autor,
+                    editorial: editorial,
+                    publicacion: publicacion,
+                    codigo: codigo,
+                    salon: salon,
+                    categoria: categoria
+                }]);
 
             if (error) {
                 console.error("Error al agregar el libro:", error);
+                alert("Hubo un error al agregar el libro. Por favor, intenta nuevamente.");
             } else {
                 alert("Libro agregado correctamente!");
                 // Limpiar el formulario
