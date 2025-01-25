@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca Escolar</title>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.21.0/dist/umd/supabase.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.21.0/dist/umd/supabase.min.js" defer></script> <!-- Usamos defer -->
     <style>
         /* Estilos para el cuerpo y el fondo */
         body {
@@ -453,7 +453,7 @@
             <div class="social-icons">
                 <ul>
                     <li><a href="https://facebook.com" target="_blank"><img src="facebook.png" alt="Facebook"></a></li>
-                    <li><a href="https://whatsapp.com" target="_blank"><img src="whatsapp.png" alt="Twitter"></a></li>
+                    <li><a href="https://whatsapp.com" target="_blank"><img src="Whatsapp.png" alt="Twitter"></a></li>
                     <li><a href="https://instagram.com" target="_blank"><img src="insta.png" alt="Instagram"></a></li>
                 </ul>
             </div>
@@ -462,95 +462,112 @@
     </footer>
 
     <script>
-        // Paso 1: Configurar cliente Supabase
-        const supabase = supabase.createClient(
-            "https://mxydejumvmtcyczhsnmw.supabase.co", // URL de tu proyecto Supabase
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im14eWRlanVtdm10Y3ljemhzbm13Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzc3NzE5NDEsImV4cCI6MjA1MzM0Nzk0MX0.3MyW650iBh5BC53eJTqcqnV08oDPoJIbzVaDwXmTs4I" // Tu clave API
-        );
-
-        // Paso 2: Función para realizar la búsqueda de libros
-        document.getElementById("form-buscar").addEventListener("submit", async function(event) {
-            event.preventDefault();
-
-            let query = document.getElementById("busqueda").value.toLowerCase();
-
-            // Mostrar el icono de carga mientras se realiza la consulta
-            document.querySelector(".loading-dots").style.display = "inline-block";
-            document.getElementById("resultados-busqueda").innerHTML = ""; // Limpiar resultados previos
-
-            // Consultar la base de datos en Supabase
-            const { data: libros, error } = await supabase
-                .from('libros')  // Nombre de tu tabla en Supabase
-                .select('*')
-                .ilike('nombre', `%${query}%`)  // Buscar por nombre
-                .or(`autor.ilike.%${query}%,categoria.ilike.%${query}%`); // Buscar por autor o categoría
-
-            // Ocultar el icono de carga después de obtener los resultados
-            document.querySelector(".loading-dots").style.display = "none";
-
-            let resultadosDiv = document.getElementById("resultados-busqueda");
-
-            if (libros && libros.length > 0) {
-                libros.forEach(libro => {
-                    let resultDiv = document.createElement("div");
-                    resultDiv.classList.add("result");
-                    resultDiv.innerHTML = `
-                        <h3>${libro.nombre}</h3>
-                        <p><strong>Autor:</strong> ${libro.autor}</p>
-                        <p><strong>Editorial:</strong> ${libro.editorial}</p>
-                        <p><strong>Publicación:</strong> ${libro.publicacion}</p>
-                        <p><strong>Código:</strong> ${libro.codigo}</p>
-                        <p><strong>Salón:</strong> ${libro.salon}</p>
-                        <p><strong>Categoría:</strong> ${libro.categoria}</p>
-                    `;
-                    resultadosDiv.appendChild(resultDiv);
-                });
-            } else {
-                resultadosDiv.innerHTML = "<p>No se encontraron libros que coincidan con tu búsqueda.</p>";
-            }
-        });
-
-        // Paso 3: Función para agregar libros a Supabase
-        document.getElementById("form-agregar").addEventListener("submit", async function(event) {
-            event.preventDefault();
-
-            // Obtener los valores del formulario
-            const nombreLibro = document.getElementById("nombre-libro").value;
-            const autor = document.getElementById("autor").value;
-            const editorial = document.getElementById("editorial").value;
-            const publicacion = document.getElementById("publicacion").value;
-            const codigo = document.getElementById("codigo").value;
-            const salon = document.getElementById("salon").value;
-            const categoria = document.getElementById("categoria").value;
-
-            // Insertar el libro en la base de datos de Supabase
-            const { data, error } = await supabase
-                .from('libros')  // Nombre de la tabla
-                .insert([{
-                    nombre: nombreLibro,
-                    autor: autor,
-                    editorial: editorial,
-                    publicacion: publicacion,
-                    codigo: codigo,
-                    salon: salon,
-                    categoria: categoria
-                }]);
-
-            if (error) {
-                console.error("Error al agregar el libro:", error);
-                alert("Hubo un error al agregar el libro. Por favor, intenta nuevamente.");
-            } else {
-                alert("Libro agregado correctamente!");
-                // Limpiar el formulario
-                document.getElementById("form-agregar").reset();
-            }
-        });
-
-        // Paso 4: Función para mostrar/ocultar respuestas de preguntas frecuentes
-        function toggleAnswer(index) {
-            const answers = document.querySelectorAll('.respuesta');
-            answers[index].style.display = answers[index].style.display === 'none' ? 'block' : 'none';
-        }
+            // Paso 1: Configurar cliente Supabase
+            const supabase = supabase.createClient(
+                "https://mxydejumvmtcyczhsnmw.supabase.co", // URL de tu proyecto Supabase
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im14eWRlanVtdm10Y3ljemhzbm13Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzc3NzE5NDEsImV4cCI6MjA1MzM0Nzk0MX0.3MyW650iBh5BC53eJTqcqnV08oDPoJIbzVaDwXmTs4I" // Tu clave API
+            );
+        
+            // Paso 2: Función para realizar la búsqueda de libros
+            document.getElementById("form-buscar").addEventListener("submit", async function(event) {
+                event.preventDefault();
+        
+                let query = document.getElementById("busqueda").value.toLowerCase();
+        
+                // Mostrar el icono de carga mientras se realiza la consulta
+                document.querySelector(".loading-dots").style.display = "inline-block";
+                document.getElementById("resultados-busqueda").innerHTML = ""; // Limpiar resultados previos
+        
+                try {
+                    // Consultar la base de datos en Supabase
+                    const { data: libros, error } = await supabase
+                        .from('libros')  // Nombre de tu tabla en Supabase
+                        .select('*')
+                        .ilike('nombre', `%${query}%`)  // Buscar por nombre
+                        .or(`autor.ilike.%${query}%,categoria.ilike.%${query}%`); // Buscar por autor o categoría
+        
+                    // Ocultar el icono de carga después de obtener los resultados
+                    document.querySelector(".loading-dots").style.display = "none";
+        
+                    let resultadosDiv = document.getElementById("resultados-busqueda");
+        
+                    if (error) {
+                        console.error("Error en la búsqueda:", error);
+                        resultadosDiv.innerHTML = "<p>Hubo un error en la búsqueda. Intenta de nuevo.</p>";
+                        return;
+                    }
+        
+                    if (libros && libros.length > 0) {
+                        libros.forEach(libro => {
+                            let resultDiv = document.createElement("div");
+                            resultDiv.classList.add("result");
+                            resultDiv.innerHTML = `
+                                <h3>${libro.nombre}</h3>
+                                <p><strong>Autor:</strong> ${libro.autor}</p>
+                                <p><strong>Editorial:</strong> ${libro.editorial}</p>
+                                <p><strong>Publicación:</strong> ${libro.publicacion}</p>
+                                <p><strong>Código:</strong> ${libro.codigo}</p>
+                                <p><strong>Salón:</strong> ${libro.salon}</p>
+                                <p><strong>Categoría:</strong> ${libro.categoria}</p>
+                            `;
+                            resultadosDiv.appendChild(resultDiv);
+                        });
+                    } else {
+                        resultadosDiv.innerHTML = "<p>No se encontraron libros que coincidan con tu búsqueda.</p>";
+                    }
+                } catch (error) {
+                    console.error("Error al buscar libros:", error);
+                    document.querySelector(".loading-dots").style.display = "none";
+                    document.getElementById("resultados-busqueda").innerHTML = "<p>Hubo un error al realizar la búsqueda. Intenta de nuevo.</p>";
+                }
+            });
+        
+            // Paso 3: Función para agregar libros a Supabase
+            document.getElementById("form-agregar").addEventListener("submit", async function(event) {
+                event.preventDefault();
+        
+                // Obtener los valores del formulario
+                const nombreLibro = document.getElementById("nombre-libro").value;
+                const autor = document.getElementById("autor").value;
+                const editorial = document.getElementById("editorial").value;
+                const publicacion = document.getElementById("publicacion").value;
+                const codigo = document.getElementById("codigo").value;
+                const salon = document.getElementById("salon").value;
+                const categoria = document.getElementById("categoria").value;
+        
+                try {
+                    // Insertar el libro en la base de datos de Supabase
+                    const { data, error } = await supabase
+                        .from('libros')  // Nombre de la tabla
+                        .insert([{
+                            nombre: nombreLibro,
+                            autor: autor,
+                            editorial: editorial,
+                            publicacion: publicacion,
+                            codigo: codigo,
+                            salon: salon,
+                            categoria: categoria
+                        }]);
+        
+                    if (error) {
+                        console.error("Error al agregar el libro:", error);
+                        alert("Hubo un error al agregar el libro. Por favor, intenta nuevamente.");
+                    } else {
+                        alert("Libro agregado correctamente!");
+                        // Limpiar el formulario
+                        document.getElementById("form-agregar").reset();
+                    }
+                } catch (error) {
+                    console.error("Error al agregar libro:", error);
+                    alert("Hubo un error al agregar el libro. Por favor, intenta nuevamente.");
+                }
+            });
+        
+            // Paso 4: Función para mostrar/ocultar respuestas de preguntas frecuentes
+            function toggleAnswer(index) {
+                const answers = document.querySelectorAll('.respuesta');
+                answers[index].style.display = answers[index].style.display === 'none' ? 'block' : 'none';
+            }        
     </script>
 </body>
 </html>
