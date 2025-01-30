@@ -314,7 +314,6 @@
             width: 30%;
             height: 30%;
         }
-
     </style>
     </head>
 <body>
@@ -326,7 +325,7 @@
     <nav>
         <ul>
             <li><a href="#informacion">Informacion</a></li>
-            <li><a href="#anuncios">Anuncios</a></li>
+            <li><a href="#anuncios">Galeria</a></li>
             <li><a href="#buscar">Buscar Libro</a></li>
             <li><a href="#ayuda">Ayuda</a></li>
         </ul>
@@ -334,15 +333,15 @@
 
     <section id="informacion" class="information">
         <h2 id="info-title">Información</h2>
-        <p>Esta página tiene como objetivo dar a conocer más información acerca de las características de los libros. Asimismo dar a conocer mas datos acerca del libro</p>
+        <p>Esta página tiene como objetivo principal ofrecer información detallada sobre las características de los libros, facilitando búsquedas más precisas y relacionadas. Actualmente está en desarrollo, por lo que puede haber algunos errores ortográficos o inconsistencias. El número total de libros es una aproximación, ya que se encuentra en proceso de actualización. ¡Gracias por ser parte de este proyecto y esperamos que la información sea útil!</p>
     </section>
 
     <main>
         <section id="anuncios">
-            <h2 id="anuncios-title">Anuncios</h2>
+            <h2 id="anuncios-title">Galeria</h2>
             <div class="slides">
                 <div class="slides-container">
-                    <img src="anuncio.gif" alt="Anuncio 1" class="active">
+                    <img src="anuncio.jpg" alt="Anuncio 1" class="active">
                 </div>
             </div>
         </section>
@@ -359,7 +358,7 @@
                 <span></span><span></span><span></span>
             </div>
             <div id="resultados-busqueda" class="results">
-                <img src="cargar.gif" alt="Anuncio 2" class="active">
+                <img src="cargar.gif" alt="Anuncio2" class="active">
             </div> <!--Mostrar libro-->
 
         <section id="ayuda">
@@ -406,81 +405,3110 @@
     </footer>
 
     <script>
-        // Crear un arreglo con libros
-        const libros = [
-            {
-                nombre: "El Quijote",
-                autor: "Miguel de Cervantes",
-                editorial: "Editorial XYZ",
-                publicacion: "1605",
-                codigo: "12345",
-                salon: "A1",
-                categoria: "Aventura"
-            },
-            {
-                nombre: "Cien Años de Soledad",
-                autor: "Gabriel García Márquez",
-                editorial: "Editorial ABC",
-                publicacion: "1967",
-                codigo: "67890",
-                salon: "B2",
-                categoria: "Ficción"
-            },
-            {
-                nombre: "El Principito",
-                autor: "Antoine de Saint-Exupéry",
-                editorial: "Editorial MNO",
-                publicacion: "1943",
-                codigo: "11223",
-                salon: "C3",
-                categoria: "Infantil"
-            }
-            // Puedes seguir agregando más libros aquí
-        ];
-        
-        document.getElementById("form-buscar").addEventListener("submit", function(event) {
-            event.preventDefault();
-        
-            let query = document.getElementById("busqueda").value.toLowerCase();
-            document.querySelector(".loading-dots").style.display = "inline-block";
-            document.getElementById("resultados-busqueda").innerHTML = ""; // Limpiar resultados previos
-        
-            // Filtrar los libros según la búsqueda
-            const librosFiltrados = libros.filter(libro => 
-                libro.nombre.toLowerCase().includes(query) ||
-                libro.autor.toLowerCase().includes(query) ||
-                libro.categoria.toLowerCase().includes(query)
-            );
-        
-            // Ocultar el icono de carga después de obtener los resultados
-            document.querySelector(".loading-dots").style.display = "none";
-        
-            let resultadosDiv = document.getElementById("resultados-busqueda");
-        
-            if (librosFiltrados.length > 0) {
-                librosFiltrados.forEach(libro => {
-                    let resultDiv = document.createElement("div");
-                    resultDiv.classList.add("result");
-                    resultDiv.innerHTML = `
-                        <h3>${libro.nombre}</h3>
-                        <p><strong>Autor:</strong> ${libro.autor}</p>
-                        <p><strong>Editorial:</strong> ${libro.editorial}</p>
-                        <p><strong>Publicación:</strong> ${libro.publicacion}</p>
-                        <p><strong>Código:</strong> ${libro.codigo}</p>
-                        <p><strong>Salón:</strong> ${libro.salon}</p>
-                        <p><strong>Categoría:</strong> ${libro.categoria}</p>
-                    `;
-                    resultadosDiv.appendChild(resultDiv);
-                });
-            } else {
-                resultadosDiv.innerHTML = "<p>No se encontraron libros que coincidan con tu búsqueda.</p>";
-            }
-        });
+                // Crear un arreglo con libros
+                const libros = [
+                {
+                    nombre: "Lluvia sobre una flor",
+                    autor: "Alicia camino",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Nozi madrina de libros",
+                    autor: "GCina mhlophe",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "La pequeña marioneta",
+                    autor: "Gabrielle vicent",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "¿Por que flota?",
+                    autor: "Pedro moreno",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "La familia de los camélidos",
+                    autor: "Avelyn davidson",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Harta del roso",
+                    autor: "Nathalie hense & llya green",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Un paseo matematico por el museo",
+                    autor: "Melvil dewey dgme",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Papelitos",
+                    autor: "Maria cristina ramos",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "¿Dónde esta el abuelo?",
+                    autor: "Mar cortina amparo peguero",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Tesoro de cuentos",
+                    autor: "Silver dolp'hin",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "¿Jugamos al teatro?",
+                    autor: "Berta hiriart",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Como todo lo que nace",
+                    autor: "ÉLISABETH BRAMI & TOM SCHAMN",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Pescando con pajaros",
+                    autor: "Evans, lynette",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Buenos días",
+                    autor: "Jan ormerod",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El princel mágico",
+                    autor: "Fracoise jay",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "¡Es un libro!",
+                    autor: "Lane smith",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El álbum de recuerdos de fernando maría rubio",
+                    autor: "Gustavo amézaga heiras",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El viaje del bisabuelo",
+                    autor: "Marta farias aitana garrascc",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "La otra orilla",
+                    autor: "Marta carrasco",
+                    salon: "1B",
+                    cantidad: "5"
+                },
+                {
+                    nombre: "Problemas de jueguete II",
+                    autor: "Antonio granados",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Antonio en el pais del silencio",
+                    autor: "Mercedes neuschafer-carlón",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Peter pan",
+                    autor: "Sin autor",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Las pinturas de willy",
+                    autor: "Anthony browne",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El juego de las formas",
+                    autor: "Anthony browne",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Enciclopedia mundial del deporte",
+                    autor: "Maurice vidal",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Mi primer diccionado ilustradro",
+                    autor: "Sin autor",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Inhala, exhala",
+                    autor: "Pamela hill nettleton",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Kipatla cuentos para tratarnos igual",
+                    autor: "Nuria gómez benet",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El premio",
+                    autor: "María puncel",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Pipopo el loco",
+                    autor: "Tracey e. fern",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Mi enciclopedia temática | El universo y la tierra",
+                    autor: "Sin autor",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "EL LADRON DE GALLINAS",
+                    autor: "BEATRICE RODRIGUEZ",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "RATON DE CAMPO Y RATON DE CIUDAD",
+                    autor: "EVA MEJUTE KIKO DASILVA",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "ALADDIN",
+                    autor: "RANDY THORNTON",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "ANIMAL",
+                    autor: "MARIA JOSE FERRADA ANA PALMERD",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "NUESTRA PALABRA MAZAHUA",
+                    autor: "CAROLOS MERIDA",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "VISITA AL ZOOLÓGICO",
+                    autor: "DAVID TUNKIN",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "MI PRIMER LIBRO DE ARTE",
+                    autor: "ROSIE DICKINS - SARAH COURTAULD",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "RIO POR MIL AÑOS",
+                    autor: "VICTOR FUENTES",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "MEXICO DE LA ALAZ",
+                    autor: "JAIME LABASTIDA CARLOS MERIDA",
+                    salon: "1B",
+                    cantidad: "5"
+                },
+                {
+                    nombre: "HISTORIA DEL UNO",
+                    autor: "FERNANDO KRAHN-MARIA DE LA LUZ URIBE",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "TIGRES DE LA OTRA NOCHE",
+                    autor: "MARIA GARCIA ESPERON",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "CUENTOS DE PIRATAS, CORSARIOS Y BANDIDOS",
+                    autor: "ANONIMO",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "EL NIÑO Y EL GORRION",
+                    autor: "DANIEL MUNDURUKA",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "OJO CON LO QUE COMES",
+                    autor: "MENENA COTTIN",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "EL PAPALOTE Y EL NOPAL",
+                    autor: "ALINE PETTERSSON",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "CUANTA GENTE ¿QUIENES SON?",
+                    autor: "MARIANA JANTTI",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "CONOCES LAS PARTES DE TU CUERPO",
+                    autor: "ROCA NURIA",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "JUGAMOS AL TEATRO",
+                    autor: "BERTHA HIRIART",
+                    salon: "1B",
+                    cantidad: "3"
+                },
+                {
+                    nombre: "EL FLAUTISTA DE HAMELIN",
+                    autor: "TERESA SABATE-MARIA ESPLUGA",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "PABLO EL ARTISTA",
+                    autor: "SATOSHI KITAMURA",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "PENELOPE Y LOS MAUNSTRUOS",
+                    autor: "SHERI RADFORD",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "TODO UN MUNDO",
+                    autor: "KATY COUPRIE",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "PICASO PARA NIÑOS",
+                    autor: "MARINA GARCIA",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "ERASE UNA VEZ UN PATO",
+                    autor: "WILLIAM FUENTES GARCIA",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "MEXICO DULCE",
+                    autor: "CARMEN ELENA COTTIN",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "TELESFORO EL TELEFONO DESOCUPADO",
+                    autor: "LUIS ARTURO RAMOS",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "JUEGOS TRADICIONALES",
+                    autor: "MARIA ANGELICA OVALLE",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "LOS PARACAIDAS",
+                    autor: "ANONIMO",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "HOLA QUE ME LLEVA LA HOLA",
+                    autor: "SERGIO ANDRICAIN",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "LANZAR, SUBIR, BAJAR Y TIRAR",
+                    autor: "NINA SHOR",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "CUANDO ESCUCHO TU CORAZON",
+                    autor: "TERE PUIG",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "LOS CINCO HORRIBLES",
+                    autor: "WOLF ERLBRUCH",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "ANTONIO EN EL PAIS DEL SILENCIO",
+                    autor: "MERCEDES NEUSCHAFER",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "POEMAS DE JUGUETE II",
+                    autor: "ANTONIO GRANADOS",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "DIAS TONALTIN",
+                    autor: "IANNA ANDREADIS",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "HELEN KELLER",
+                    autor: "HARRIET CASTOR",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "NOZI MADRINA DE LIBROS",
+                    autor: "GCINA MHLOPHE",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "LLUVIA SOBRE UNA FLOR",
+                    autor: "ALICIA CAMINO",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "AUSENCIA Y LEJANIA",
+                    autor: "ALICIA CAMINO",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "MI ENCICLOPEDIA TEMATICA",
+                    autor: "ANONIMO",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "PIPPO EL LOCO",
+                    autor: "TRACEY E FERN",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "EL PREMIO",
+                    autor: "MARIA PUNCEL",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "KIPATLA",
+                    autor: "NURIA GOMEZ BENET",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "INHALA EXHALA",
+                    autor: "PAMELA HILL NETTLETON",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "PETER PAN",
+                    autor: "SIN AUTOR",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "LA OTRA ORILLA",
+                    autor: "MARTA CARRASCO",
+                    salon: "1B",
+                    cantidad: "5"
+                },
+                {
+                    nombre: "EL VIAJE DEL BISABUELO",
+                    autor: "MARTA FARIAS",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "EL ALBUM DE RECUERDOS DE FERNANDO MARIA RUBIO",
+                    autor: "GUSTAVO AMEZA",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "ES UN LIBRO",
+                    autor: "LANE SMITH",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "EL PINCEL MAGICO",
+                    autor: "FRANCOISE JAY",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "BUENOS DIAS",
+                    autor: "JAN ORMEROD",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "PEZCAND CON PAJAROS",
+                    autor: "LYNETTE EVANS",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "COMO TODO LO QUE NACE",
+                    autor: "ELISABETH BRAMI",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "LO QUE HAGO CON MI CUERPO",
+                    autor: "ANGELICA ARRIAGA",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "EL DUENDE DEL MAR",
+                    autor: "HILDA PERERA",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "VITAMINA ¿Dónde ESTAS?",
+                    autor: "CARLA BAREDES",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "EN LA PIEL DEL CORAZON",
+                    autor: "TINA DE LUIS",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "TURQUESITA",
+                    autor: "SILVIA DUBOVOY",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "EL JUEGO DE LAS FORMAS",
+                    autor: "ANTHONY BROWNE",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "LAS PINTURAS DE WILLY",
+                    autor: "ANTHONY BROWNE",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "AGENTE RICITOS",
+                    autor: "EL HEMATOCRITICO",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "ΜΙ PAPA NO APESTA",
+                    autor: "ANDREE POULIN",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "MONTAÑAS",
+                    autor: "JOANN EARLY MACKEN",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "UN BESTIARIO DE LA PREHISTORIA",
+                    autor: "IANNA ANDREADIS",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "UN DIA DE PEZCA",
+                    autor: "BEATRICE RODRIGUEZ",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "LUNA DE HUSO",
+                    autor: "ALBERTO BLANCO Y FRANCISCO TOLEDO",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "ABC",
+                    autor: "ALBERTO BLANCO",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "INCECTOS",
+                    autor: "CLAIRE LLEWELLYN",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "EL NACIMIENTO DEL BEJUCO",
+                    autor: "LUZ MARIA CHAPELA",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "LA PRINCESA DE LAS OCAS",
+                    autor: "JOELLE BARNABE",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "LA ISLA DEL TESORO",
+                    autor: "ROBERT LOUIS STEVENSON",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "LATAREA SEGÚN NATACHA",
+                    autor: "LUIS MARIA PESCETTI",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "SOY TU CUERPO",
+                    autor: "JOSE MANUEL SANCHEZ ROJAS",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Guía de apoyo para docentes",
+                    autor: "Sin autor",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Ausencia y lejania",
+                    autor: "Sin autor",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Conoce tu biblioteca pública",
+                    autor: "Sin autor",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Jugamos al teatro",
+                    autor: "Berta hiriart",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Hellen keller",
+                    autor: "Harriet Castor",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Dias tonaltin",
+                    autor: "lanna andreadis",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Aqui vivo",
+                    autor: "Sin autor",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Colibri",
+                    autor: "Mercedes de la garza",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Un bestiario de la prehistoria",
+                    autor: "Lanna andreadis",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Montañas",
+                    autor: "Early Nacken,joann",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "¡Mi papá no apesta!",
+                    autor: "Andreee poulin jean morin",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Agente ricitos",
+                    autor: "El hematocrítico",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Turquesita",
+                    autor: "Silvia bubvoy & raul villagomez",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "La tarca ségun natacha",
+                    autor: "Luis naria pescetti",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "La princesa de las ocas",
+                    autor: "Joelle barnabe",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El nacimiento de bejuco",
+                    autor: "Luz maria chapela",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Insectos un mundo pequeño",
+                    autor: "Chaire llewellyn",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Luna de hueso",
+                    autor: "Alberto blanco & francisco toledo",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+	 	        {
+                    nombre: "Un dia de pesca",
+                    autor: "beatrice rodriguez",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Una vaca en el tejado",
+                    autor: "Eric maddena pa...",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "En la piel del corazon",
+                    autor: "",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Nico dibuja un sentimiento",
+                    autor: "bob raczka",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "EL	pueblo que vino lejos",
+                    autor: "Maria yolanda arguello",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Niña de sueño lucila",
+                    autor: "Victor carvaja",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "¿Te da miedo el bosque, papá lobo?",
+                    autor: "Fan de kinder",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "No puedes ver tus huesos con binoculares",
+                    autor: "Harriet ziefert",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+ 		        {
+                    nombre: "Este es un león",
+                    autor: "Claudia canales & victor garcia",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Pajaro azul",
+                    autor: "Bob staake",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "¿Conoces las partes de tu cuerpo?",
+                    autor: "Sin autor",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El duende del mar",
+                    autor: "Hilda perera",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "¿Y el medio ambiente? problemas de méxico y el mundo",
+                    autor: "Sin autor",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Vida saludable 1°",
+                    autor: "Sin autor",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Fichero Actividades didacticas | matematicas primer grado",
+                    autor: "Martha davila vega",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "¿Como cvounstruir ambientes protectores?",
+                    autor: "Silvia conde flores",
+                    salon: "1B",
+                    cantidad: "4"
+                },
+                {
+                    nombre: "Violencia 2a edición",
+                    autor: "Pilar acevedo alvarez & Gloria araceli borja perez",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "¿Hata que los kilos nos alcancen?",
+                    autor: "Simón  barquera",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Bibliotecas escolares y de aula 2022",
+                    autor: "Sin autor",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Cuaderno de actividades para el alumno",
+                    autor: "Sin autor",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+		{
+                    nombre: "Renovacion educativa | revisata para los maestros",
+                    autor: "Sin autor",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Un cuento helado de coca cola",
+                    autor: "Sin autor",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Me valoro y aprendo a cuidarme",
+                    autor: "Sin autor",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Educare nueva epoca",
+                    autor: "Alberto arnaut",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Educare nueva epoca",
+                    autor: "Rebecs reynoso angulo & silvia molina",
+                    salon: "1B",
+                    cantidad: "2"
+                },
+                {
+                    nombre: "Cómo preparar el refrigerio escolar y tener una alimentación correcta",
+                    autor: "Sin autor",
+                    salon: "1B",
+                    cantidad: "6"
+                },
+                {
+                    nombre: "Aprendizaje clave... para la educación integral",
+                    autor: "Sin autor",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Guia para la enseñanza de valñores ambientales",
+                    autor: "Michaul j. caduto",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Guia para el docente | Educación primaria",
+                    autor: "Esther oldak finkler",
+                    salon: "1B",
+                    cantidad: "2"
+                },
+                {
+                    nombre: "¿Es mucho 7°?",
+                    autor: "Antje damm",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "¿A quien le toca el durazno?",
+                    autor: "Yoom ah-hae",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Lobo, ¿estas ahi?",
+                    autor: "Edmir perrotti",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+ 		        {
+                    nombre: "La tierra",
+                    autor: "Trent johnson",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Vitamina, ¿dónde estas?",
+                    autor: "Carla baredes & lleana lotersztain",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "¡Cuanta gente! | ¿Quienes son?",
+                    autor: "Mar..",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El papalote y el nopal",
+                    autor: "Aline pettersson",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Ojo con lo que comes",
+                    autor: "Menena cottin",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El niño y el gorrión",
+                    autor: "Daniel munduruku",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Cuentos de piratas, corsarios y bandiddos",
+                    autor: "Sin autor",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Tigres de la otra noche",
+                    autor: "María garcía esperón",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+ 		{
+                    nombre: "México de la A a la Z",
+                    autor: "Jaime labastida",
+                    salon: "1B",
+                    cantidad: "5"
+                },
+                {
+                    nombre: "Río, por mil años | Guiizu, zeiza",
+                    autor: "Victor fuentes",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Mi primer libro de arte",
+                    autor: "Rosie dickins & sarah courtauld",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Visista al zoológico",
+                    autor: "David tunkin",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Nuestra palabra mazahua",
+                    autor: "Carola diez",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Juegos tradicionales",
+                    autor: "María angélica ovalle",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Manual para docentes | Educación primaria",
+                    autor: "Sin autor",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+ 		        {
+                    nombre: "La suerte de ozu",
+                    autor: "Claudia rueda",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "¡Ñec-ñec ris-ras!",
+                    autor: "Barbara Jean Hicks & Alexis Deacon",
+                    salon: "1B",
+                    cantidad: "1"
+                },
+		        // INICIO 1A
+                {
+                    nombre: "Viaje en los desiertos",
+                    autor: "Pedro moreno",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+ 		        {
+                    nombre: "Un ronroneo a la vida",
+                    autor: "Magdalena pérez saldirvan",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "El secreto de la selva | Una leyenda lacandona",
+                    autor: "Santiago ruy sánches",
+                    salon: "1A",
+                    cantidad: "2"
+                },
+		        {
+                    nombre: "Migrando",
+                    autor: "Mariana chiesa mateos",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Zapatito blanco ... pocas letras",
+                    autor: "Sin autor",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+ 		        {
+                    nombre: "Alrededor de la tierra",
+                    autor: "Sin autor",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Teatro infantil | Magia, caballeros y fantasmas",
+                    autor: "Thomas j. landa & nobert landa",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Ricictos de orro y los tres osos",
+                    autor: "Robin bryant",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "¡Tengo piojos!",
+                    autor: "Donna caffey",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+ 		        {
+                    nombre: "La otra orilla",
+                    autor: "Martha carrasco",
+                    salon: "1A",
+                    cantidad: "2"
+                },
+		        {
+                    nombre: "El burrrito descontento",
+                    autor: "Sin autor",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Cri cri | Cuentos para cantar y para leer",
+                    autor: "Francisco gabilando soler",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Orificios y más",
+                    autor: "Sin autor",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+ 		        {
+                    nombre: "Los morros | Un desierto a la horilla del mar",
+                    autor: "Laurence quentin & catherine reisser",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "¿Qué es esto?",
+                    autor: "Sergio lópez suárez",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+ 		        {
+                    nombre: "Cirilio",
+                    autor: "Trino",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "La máquina del tiempo",
+                    autor: "Sin autor",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "El nacimiento del bejuco",
+                    autor: "Luz maría chapela",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Candhi",
+                    autor: "Arturo uslar pietri",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+ 		        {
+                    nombre: "¿Que te gusta más?",
+                    autor: "María luisa valdivia",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Gota de lluvia y otros poemas",
+                    autor: "José emilioo pacheco",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Nuestra palabra mazahua",
+                    autor: "Carola diez",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "La gran canoa",
+                    autor: "María elena maggi",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+ 		        {
+                    nombre: "Papelitos",
+                    autor: "Maía cristina ramos",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Apoyo para docentes | Calendario de valores 2014-2015",
+                    autor: "Sin autor",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Zoo ¡lógico",
+                    autor: "Raul romero",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Cuentos del sol, la luna y las estrelllas",
+                    autor: "Mary hofman & jane ray",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Ojo con lo que comes",
+                    autor: "Menena cottin",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Una vaca ene el tejado",
+                    autor: "Eric maddern & pawl hess",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Del otro lado del arbol",
+                    autor: "Madana sadar",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Mamíta mounstruo",
+                    autor: "Lia zats & eva furnarí",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El problema de odí",
+                    autor: "Eva fumari",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "D de despedida",
+                    autor: "Ifeoma onyefulu",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Sapo y yuki",
+                    autor: "Judy goldam",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Sopa de clavo",
+                    autor: "Eric maddern & paul hess",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Los mejores amigos",
+                    autor: "Margaret wild",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El gigante egoista",
+                    autor: "Oscar wild",
+                    salon: "1A",
+                    cantidad: "2"
+                },
+                {
+                    nombre: "Veo | Un libro de adivinanzas ilastradas",
+                    autor: "Carol devine carson",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El pez de la felicidad",
+                    autor: "Duan cheng shi & Li han wen",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "¿Te da miedo el bosque, papá lobo?",
+                    autor: "Jan de kinder",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Los insectos bajo el microscopio | La conducta",
+                    autor: "Sin autor",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "¡A jugar!",
+                    autor: "Sin autor",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Doña eremita sobre ruedas",
+                    autor: "Quentin beake",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Guía de estudio",
+                    autor: "Sin autor",
+                    salon: "1A",
+                    cantidad: "2"
+                },
+                {
+                    nombre: "Me llamo yoon",
+                    autor: "Helen recorvits",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "¿Y yo, qué? | Lucas y su hermana emferma",
+                    autor: "George vlamakis",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Cómo preparar el refrigerio escolar y tener una alimentación correcta",
+                    autor: "Sin autor",
+                    salon: "1A",
+                    cantidad: "2"
+                },
+                {
+                    nombre: "Juana de arco",
+                    autor: "Arturo uslar pietri",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Jamu | El inconforme pájaro del bosque",
+                    autor: "José kordero jiménez",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Sonido",
+                    autor: "Sin autor",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Medio cielo",
+                    autor: "Alberto blanco",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El premio",
+                    autor: "María puncel",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El libro apestoso",
+                    autor: "Babette cole",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "EL libro de los cochinitos",
+                    autor: "Aquiles nazoa",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "EL frijol y la planta de maíz",
+                    autor: "Armando bautista garcía",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Pablo pineda",
+                    autor: "Albert bosch & maría sala",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Tikuxi kaa",
+                    autor: "Nadia lópez garcia",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El fascinante mundo de las matematicas",
+                    autor: "Nigel lagdon & charles snape",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Di la hora con tedy",
+                    autor: "Sin autor",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Conquistador del ciela",
+                    autor: "José montelongo",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Pablo el artista",
+                    autor: "Satoshi kitamura",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "No somos angelitos",
+                    autor: "Gusti",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Pescando con pájaros",
+                    autor: "Lynette evans",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Dos historias de mujeres",
+                    autor: "Graciela reyes",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Me lo dijo mi almohada",
+                    autor: "Elena drser",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Digo de noche un gato y otros poemas",
+                    autor: "María baranda",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Los usos de las plantas entre los amuzgos",
+                    autor: "Modesta cruz hernandez",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "¿Dónde los guardaré para que no se pierdan?",
+                    autor: "Garcia castellanos & rocío martinez",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Mi papá",
+                    autor: "Anthony browne",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "¿Dónde nacen las ballenas?",
+                    autor: "Pedro moreno",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Evolución",
+                    autor: "Sin autor",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El libro de la selva",
+                    autor: "Rudyard kipling",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "¡Ay! ¡Me pica!",
+                    autor: "Brigitte marleau",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Los origenes del hombre",
+                    autor: "Yves coppens",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "No sólo las alas sirven para volar",
+                    autor: "Josu garcía & orestes amores",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "La otra orilla",
+                    autor: "Marta carasco",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Ser quinto",
+                    autor: "Ernst jandl & norman junge",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Simpática, morena y temblorosa",
+                    autor: "Jade daly",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Los animales no se visten",
+                    autor: "Juidi barrett",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Los niños expresasn | Valores | Honestidad",
+                    autor: "Sin autor",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Juan felizario contento",
+                    autor: "Anonimo",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Adivina, adivinanza...",
+                    autor: "Elva macias & felipe ugalde",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Helen keller",
+                    autor: "Harriet castor",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Luna de hueso",
+                    autor: "Alberto blanco & francisco toledo",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El juego de las formas",
+                    autor: "Anthony browne",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Kipatla",
+                    autor: "Sin autor",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Águilas, nopales y serpientes",
+                    autor: "Claudia burr & ana piño",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Mi primer diccionario de flora de méxico",
+                    autor: "Pedro moreno",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Enciclopedia de los niños",
+                    autor: "Sin autor",
+                    salon: "1A",
+                    cantidad: "4"
+                },
+		        {
+                    nombre: "México de la A a la Z",
+                    autor: "Jaime labastida",
+                    salon: "1A",
+                    cantidad: "5"
+                },
+		        {
+                    nombre: "Érase una vez.. un pato",
+                    autor: "William fuentes garcía",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "dime por qué sudamos",
+                    autor: "Alexandra pastéris",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "¡Mi cuerpo es mío!",
+                    autor: "Dagmar geisler",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Me valoro y aprendo a cuidarme",
+                    autor: "Sin autor",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Cuentos de misterio y terror",
+                    autor: "Edgar allan poe",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Negríta",
+                    autor: "Onello jorge cardoso & mauricio gómez morín",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Pajaro azul",
+                    autor: "Bob staarke",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Lola",
+                    autor: "Lounfane",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Un día de pesca",
+                    autor: "Beatrice rodriguez",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		{
+                    nombre: "Me gusto",
+                    autor: "Jaíme lee curtis & laura cornel",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		{
+                    nombre: "¡Vaya banquetes!",
+                    autor: "Sin autor",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		{
+                    nombre: "Turquesita",
+                    autor: "Silvia dubovoy & villagómez",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		{
+                    nombre: "Lo que hago con mi cuerpo",
+                    autor: "Angélica arriaga, Rosa maría guede, Ocaranza, Álvaro R. osornio, Gabriala urdapilleta & Alejandra vélez",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		{
+                    nombre: "El camino a los países cálidos",
+                    autor: "Sin autor",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		{
+                    nombre: "La primavera",
+                    autor: "Arturo curiel ballesteros",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		{
+                    nombre: "Tonta bruja y otras historias",
+                    autor: "sin autor",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		{
+                    nombre: "Caperucita roja, verdwe, amarilla, azul y blanca",
+                    autor: "Bruno munari & enrica agostinelli",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		{
+                    nombre: "El periquillo sarniento",
+                    autor: "José joaquín fernández de lizardi",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		{
+                    nombre: "Cantos y cuentos en maya",
+                    autor: "Sin autor",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		{
+                    nombre: "El abecedario fantastico de patam, el elefante",
+                    autor: "Montse gisbert",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		{
+                    nombre: "Antalogía primer grado",
+                    autor: "Sin autor",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		{
+                    nombre: "Los fósiles nos hablan del pasado",
+                    autor: "Aliki",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		{
+                    nombre: "Yamina",
+                    autor: "Paul geraghty",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		{
+                    nombre: "El gran libro de la ecología",
+                    autor: "Mary hoffman",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		{
+                    nombre: "¿Conoces las partes de tu cuerpo?",
+                    autor: "Sin autor",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		{
+                    nombre: "Historia del uno",
+                    autor: "Fernando krahn & maría de luz uribe",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		{
+                    nombre: "Asi nace una rana",
+                    autor: "Claire llewllyn & simon mendez",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		{
+                    nombre: "El curro",
+                    autor: "Sin autor",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		{
+                    nombre: "El libro de los disonaurios herbívoros",
+                    autor: "Pilar obón",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		{
+                    nombre: "Pippo el loco",
+                    autor: "Tracery e. fern",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		{
+                    nombre: "Como una novela",
+                    autor: "Daniel pennac",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		{
+                    nombre: "Naeiz de papá, cabello de mamá",
+                    autor: "Enrique ortiz moreno",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		{
+                    nombre: "Los niños expresan valores | Justicia",
+                    autor: "sin autor",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		{
+                    nombre: "¿Qué sabes sobre los delfines?",
+                    autor: "Harley chan",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "El lobo méxicano | un amigo en peligro",
+                    autor: "María asunción soto",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "17 narradoras latinoamericanas",
+                    autor: "Cecilia absatz, claribel alegría, isabel allende, liliana heker, clarice lispector, viviana mellet, silvia molina, monserrat ordóñez, carmen naranjo, cristina peri rossi, elena poniatowska, mariella sala & milagros socorro",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Río, por mil años",
+                    autor: "victor fuentes",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Los paracaidas",
+                    autor: "Sin autor",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "El punto",
+                    autor: "Peter h. reynolds",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "¿Juegas conmigo?",
+                    autor: "Sin autor",
+                    salon: "1A",
+                    cantidad: "2"
+                },
+		        {
+                    nombre: "El pato y la muerte",
+                    autor: "Wolf erlbruch",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		{
+                    nombre: "Adiós a las trampas",
+                    autor: "Germán dehesa, carlos mayer-serra, denise drsser & federico reyes heroles",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Encuentra en cada cara lo que tiene de rara",
+                    autor: "Fernando del paso",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "El príncipe feliz",
+                    autor: "Zaraida vásquez",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Ratratos",
+                    autor: "Claude delafosse & gallimard jeunesse",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		{
+                    nombre: "Mi abuelita tiene ruedas",
+                    autor: "Silvia molina",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Mi perro roberto",
+                    autor: "Rodrigo bernatene",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Coli",
+                    autor: "Peter h. reynolds",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Una historria fantástica",
+                    autor: "Bruno heitz",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Cuadernillo de experimentos",
+                    autor: "Ana maría arellano barreda, anayency lópez vazquez, rosa amelia trejo castro & iván venezuela cabado",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "¿De qué colores somos?",
+                    autor: "Carmen gil & Luis filella",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "La exploración del espacio",
+                    autor: "Sin autor",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Animal",
+                    autor: "María josé ferrada",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "E de escuela",
+                    autor: "Tomás abella",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Nuestros cuentos favoritos del mundo entero",
+                    autor: "Jamila gavin",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Harta del rosa",
+                    autor: "Nathalia hense & ilya green",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Adivinancero",
+                    autor: "Valentín rincón & cuca serratos",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		{
+                    nombre: "En el carnaval",
+                    autor: "sin autor",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "¡Es un libro!",
+                    autor: "Lane smith",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Pato va en bici",
+                    autor: "David shannon",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Soy humilde",
+                    autor: "Sin autor",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Galileo lee",
+                    autor: "Lia zats & fernando lopes",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Vida saludable 1°",
+                    autor: "Sin autor",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		{
+                    nombre: "Cuadernillo de actividades para el alumno educación primaria 1°",
+                    autor: "Sin autor",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Educación fisica 1°",
+                    autor: "Sin autor",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "¿Hasta que los kilos nos alcancen?",
+                    autor: "Simón barquera",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Matemáticas primer grado",
+                    autor: "Sin autor",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Las aventuras de dulce clarita | Vida saludable",
+                    autor: "Sin autor",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Formación cívica y ética primer grado",
+                    autor: "Sin autor",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Aprendizajes clave ... para la educación integral",
+                    autor: "Sin autor",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+		        {
+                    nombre: "Entornos escolares seguros en educación básica",
+                    autor: "Sin autor",
+                    salon: "1A",
+                    cantidad: "1"
+                },
+                // Segundo A
+                {
+                    nombre: "El curioso caso de benjamin button",
+                    autor: "F, scott fitzgerald",
+                    salon: "2A",
+                    cantidad: "4"
+                },
+                {
+                    nombre: "Diccionario escolar",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "2"
+                },
+                {
+                    nombre: "Antología segundo grado",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "10"
+                },
+                {
+                    nombre: "Cuentos de bolsillo",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Mi primer libro de príncipes y princesas",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Un sueño redondo",
+                    autor: "Juan carlos chandro & gonzalo izquierdo",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Migrando",
+                    autor: "Mariana chiesa mateos",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "México de la A a la Z",
+                    autor: "Jaime labastida",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Sobre tormentas y tornados",
+                    autor: "María inés campos & andres cosarinsky",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "En el reino del sol",
+                    autor: "Rafael gaona",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Los otavalos en el medio del mundo",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "La pequeña marioneta",
+                    autor: "Gabrielle vicent",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "La casa y el hogar | Ayer y hoy",
+                    autor: "Alastair simth",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Las aventuras de caperucita roja",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El cadejo",
+                    autor: "Efrain bartolomé",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Saque de meta",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Animales polares - del borde del rio",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "viaje al centro de la tierra",
+                    autor: "Julio verne",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Negrita",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "En la prehistoria",
+                    autor: "Christine nauman-villem",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Mi primer libro de cuentos del mundo",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Dia y noche",
+                    autor: "Cristiano bertolucci & francesco milo",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Sapo y yuki",
+                    autor: "Judy goldman",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Pippo el loco",
+                    autor: "Tracery e. fern",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El niño dulce por querer ser un muñeco",
+                    autor: "Alfonso morales",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Erase una vez",
+                    autor: "Dominique jorand",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Cuentos y fabulas para los pequeños",
+                    autor: "Genaro lópez",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Mi cuerpo y yo",
+                    autor: "Jorge luján",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Mucho que ver",
+                    autor: "María del camen escadón minutti, Francisco javier teutli guillén & Hilda m. caballero leal",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Niña bonita",
+                    autor: "Ana maría machado",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Peek-a-boo!",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "EL diablillo de la botella",
+                    autor: "R. l. stevenson",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Divertidos trucos de magia",
+                    autor: "MArio lacosta",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Decimas lúdicas, cómicas, cálidas",
+                    autor: "Emilio ángel lome & felipe ugalde",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Los cuatro amigos",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El sueño de dos amigos",
+                    autor: "Shin ji-yun & lee hyeon-jeong",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "David se mete en líos",
+                    autor: "David shannon",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Dichos de bichos",
+                    autor: "Alberto blanco",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "La llegada del virrey",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Pedro azul",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Café dulce, café amargo",
+                    autor: "Ama obiols",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Chumba la cachunba",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El oficial correa y gloria",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "La casa de poctli",
+                    autor: "Alejandro alacántara gallegos & guillermo de gante",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Mounstruos",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Madlenka",
+                    autor: "Peter sís",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Barba zul",
+                    autor: "Carlos pellart",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El diablo de la selva",
+                    autor: "Marlene perlingeiro",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Witika, hija de los leones",
+                    autor: "Blanca álvarez & carmen garcia iglesias",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "La suerte cambia la vida",
+                    autor: "Javier españa",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "EL descubrimiento",
+                    autor: "Jonas rebero",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Guiños y guiñas",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Los amigos de candelita",
+                    autor: "Saúl ibargoyen",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Ojos",
+                    autor: "Briguite bawnbrusch",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Corazón, diario de un niño",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Rafa cuenta una historia",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El cuerpo",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Axólotl El ajolote",
+                    autor: "José antonio flores farfán",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El burro ladrón",
+                    autor: "David martínez orozco",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Juan juanetes",
+                    autor: "Gerardo mendez",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El ratón más famoso",
+                    autor: "Istvansch",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Breve historia del mundo",
+                    autor: "Eliseo alberto",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Agente ricitos",
+                    autor: "El hematocritico",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Sueños de bailarina",
+                    autor: "Lauren thompson",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "E de escuela",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El arból de la vida",
+                    autor: "Rochelle strauss",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Olas, mareas y crrientes",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "La otra orilla",
+                    autor: "Marta carrasco",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Mulan",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Los moros",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Cocineritos",
+                    autor: "Mary brandt",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Matemáticas segundo grado",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El burro que metió la pata",
+                    autor: "Elena poniatowska & fernando robles",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Circo",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Aprendiendo con los valores",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Las aventura de dulce clarita",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Al otro lado del jardín",
+                    autor: "Jaime botargo",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Conocimiento del medio segundo grado",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El papalote y el nopal",
+                    autor: "Aline petterson",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "¿Es mucho 7?",
+                    autor: "Antje damm",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Formación cívica y ética segundo grado",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Bosque de niebla",
+                    autor: "Adrian cañedo & maria del carmen sánchez ortiz",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Cómo funcionan las cosas",
+                    autor: "Sophie douvas",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El viaje alrevez",
+                    autor: "Marie-danielle croteau",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Oficios y más oficios 2",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Cuentos de los abuelos",
+                    autor: "Rubén bonifaz nuño",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Conjuros y sortilegios",
+                    autor: "Irene vasco",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "México de la A a la Z",
+                    autor: "Jaime labasta",
+                    salon: "2A",
+                    cantidad: "2"
+                },
+                {
+                    nombre: "La rotación",
+                    autor: "Park jin-kyu & kim hye-ran",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El libro salvaje",
+                    autor: "Juan villoro",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El coyote tonto",
+                    autor: "Felipe garrido",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Cómo abrió don nicanor el gran circo volador",
+                    autor: "Mar benegas & ximo abadía",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El clima es caprichoso",
+                    autor: "Park jin-gyu & oh seung-min",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Hugo tiene hambre",
+                    autor: "Silvia schujer & Mónica wiss",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Itacate de palabras mexicanas",
+                    autor: "Juan palomar de miguel",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El gran libro de leyendas meolevales",
+                    autor: "Francesc  miralles",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Chester",
+                    autor: "Melanie watt",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Arturo y el elefante sin memoria",
+                    autor: "Maria girón",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Personas de la historia de mexico en primaria",
+                    autor: "Miguel l. flores",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Cuando aún no existan los sueños",
+                    autor: "Stefan gzernecki & timothy rhodes",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Nozi madrina de libros",
+                    autor: "Gcina mhlophe",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "La respiración",
+                    autor: "Luci cruz wilson",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Ojos abiertos",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "La selva",
+                    autor: "Pat malone",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El clima es caprichoso",
+                    autor: "Park jin-gyu & oh seung-min",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "¡Hola, hermanito!",
+                    autor: "Roble h. harris",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "¿A qhé huelen las guayabas?",
+                    autor: "Eva salgado & jose antonio hernandez",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Zoológico de greguerías",
+                    autor: "Ramón gómez de la sema",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "La gran fábrica de las palabras",
+                    autor: "agnes de lestrade",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Un libro para bruno",
+                    autor: "Nikolaus heildelbach",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Alex dentro y fuera del marco",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El mundo que amo",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Insectos un mundo pequeño",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Érase una vez un mundo de agua",
+                    autor: "Gloriavalek valdes",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El pueblo que vino de lejos",
+                    autor: "Marta yolanda arguella",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Secuestrador de sueños",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Un dos, tres el año se fue",
+                    autor: "Greg tang",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Moun truo",
+                    autor: "Michael escoffier",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Momias",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "César chavez",
+                    autor: "Ginger wadsworth",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Cuentos de los abuelos",
+                    autor: "Rubén bonifaz nuño",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Oficios y más oficios 2",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Las palabras, importan un poco, mucho, muchisimo..",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Sistema solar",
+                    autor: "Mike goldsmith",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Un paseo matemático por el museo",
+                    autor: "Grupo majungmul",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "22 huérfanos",
+                    autor: "Tjibe veldkamp & philip hopman",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "¿Qué crees?",
+                    autor: "Mem fox",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "La electricidad",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El maletín de santiago",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Examen de miedo",
+                    autor: "Yolanda reyes",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El maletín",
+                    autor: "Armando butista garcia",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Redondo",
+                    autor: "Claudia hernández garcía",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Si la luna pudiera hablar",
+                    autor: "Kate banks & georg hallenseleben",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Me llamo yoon",
+                    autor: "Helen recorvits",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El desierto",
+                    autor: "Francisco morosini",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Nuestro cuerpo 2",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Huerta cosecha lo que siembras",
+                    autor: "Monica martín pablo samur",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El chamaco covarrubias",
+                    autor: "Rebeca orozco",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Animales divertidos del bosque",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Lotería fotográfica mexicana",
+                    autor: "Jal halley",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El color",
+                    autor: "Philippe nessman",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "asi comemos por aquí",
+                    autor: "Elisa ramirez castañeda",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Los huevos",
+                    autor: "Philippe simon",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Inventos inspirados en la narutraleza",
+                    autor: "Wan-doo kim",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Los mejores cuentos de aderson",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Materiales",
+                    autor: "Clive gifford",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Los sentidos",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Bosques y praderas",
+                    autor: "Sally herwitt",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Arquitectura para niños",
+                    autor: "Ignacio van aerssen & josé antonio aldrete-haas",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Mi primer libro de arte",
+                    autor: "Rosie dickins & sarah courtauld",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Mi cuerpo",
+                    autor: "Angela royston & sally hewitt",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Bibliotecas escolares y de aula 2002 primaria",
+                    autor: "Ignacio van aerssen",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Español recortable segundo grado",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Ciencias naturales",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Lengua materna. Español. Lecturas segundo grado",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Entornos escolares seguros en escuelas de educación básica",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Cómo preparar el refrigerio escolar y tener una alimentación correcta",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Matemáticas segundo grado",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Conocimiento del medio segundo grado",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Cuauhtémoc",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El cuerpo",
+                    autor: "Charline zeitoun",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Al final",
+                    autor: "Silvia nanclares & miguel briera",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Palabras en mi corazón",
+                    autor: "Itán rabchinskey & regina tattersfield",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "México de la A a la Z",
+                    autor: "Jaime labastida",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Lengua materna español segundo grado",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "2"
+                },
+                {
+                    nombre: "¿Cómo mejorar la evaluación en el aula?",
+                    autor: "Pedro ravela, beatriz picaroni & graciela loureiro",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "A la orilla del agua",
+                    autor: "Claudia m. lee",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "El peinado de la tía chofi",
+                    autor: "Vivian mansour manzur",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Tragasueños",
+                    autor: "Michael ende & ann jer fanchshaber",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "Los tres cochinitos",
+                    autor: "Sin autor",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                {
+                    nombre: "¡Agarren esa gata!",
+                    autor: "Stéphane poulin",
+                    salon: "2A",
+                    cantidad: "1"
+                },
+                // Segundo B
+		
 
-        function toggleAnswer(index) {
-            const answers = document.querySelectorAll('.respuesta');
-            answers[index].style.display = answers[index].style.display === 'none' ? 'block' : 'none';
-        }        
+		
+
+
+                // Puedes seguir agregando más libros aquí
+                ];
+
+		 // Función para realizar la búsqueda y mostrar los resultados
+                document.getElementById("form-buscar").addEventListener("submit", function(event) {
+                    event.preventDefault(); // Prevenir que el formulario se envíe y recargue la página
+
+                    let query = document.getElementById("busqueda").value.trim().toLowerCase(); // Obtener la consulta en minúsculas
+
+                    // Mostrar indicador de carga mientras se realiza la búsqueda
+                    document.querySelector(".loading-dots").style.display = "inline-block";
+
+                    // Limpiar resultados previos
+                    document.getElementById("resultados-busqueda").innerHTML = "";
+
+                    // Si la consulta está vacía, evitar continuar
+                    if (query === "") {
+                        document.querySelector(".loading-dots").style.display = "none";
+                        return;
+                    }
+
+                    // Filtrar los libros según la búsqueda en múltiples campos
+                    const librosFiltrados = libros.filter(libro => {
+
+                        // Comparar todos los campos de manera más flexible
+                        return (
+                            // Comprobar coincidencia con nombre
+                            libro.nombre.toLowerCase().includes(query) ||
+                            // Comprobar coincidencia con autor
+                            libro.autor.toLowerCase().includes(query) ||
+                            // Comprobar coincidencia con salón (permite búsquedas parciales y caracteres como "B" o "1")
+                            libro.salon.toLowerCase().includes(query) ||
+                            // Comprobar coincidencia con cantidad (si la búsqueda es un número)
+                            libro.cantidad.toString().includes(query)
+                        );
+                    });
+
+                    // Calcular la cantidad total de libros en el arreglo completo
+                    const totalLibros = libros.reduce((acc, libro) => acc + Number(libro.cantidad), 0);
+
+                    // Ocultar el icono de carga después de obtener los resultados
+                    document.querySelector(".loading-dots").style.display = "none";
+
+                    let resultadosDiv = document.getElementById("resultados-busqueda");
+
+                    if (librosFiltrados.length > 0) {
+                        // Mostrar resultados de la búsqueda
+                        librosFiltrados.forEach(libro => {
+                            let resultDiv = document.createElement("div");
+                            resultDiv.classList.add("result");
+                            resultDiv.innerHTML = `
+                                <h3>${libro.nombre}</h3>
+                                <p><strong>Autor:</strong> ${libro.autor}</p>
+                                <p><strong>Salón:</strong> ${libro.salon}</p>
+                                <p><strong>Cantidad:</strong> ${libro.cantidad}</p>
+                            `;
+                            resultadosDiv.appendChild(resultDiv);
+                        });
+
+                        // Mostrar la cantidad total de libros encontrados
+                        let totalLibrosDiv = document.createElement("div");
+                        totalLibrosDiv.classList.add("total-libros");
+                        totalLibrosDiv.innerHTML = `<p><strong>Total de libros en existencia:</strong> ${totalLibros}</p>`;
+                        resultadosDiv.appendChild(totalLibrosDiv);
+
+                    } else {
+                        // Si no se encuentran libros, mostrar mensaje de error
+                        resultadosDiv.innerHTML = "<p>No se encontraron libros que coincidan con tu búsqueda.</p>";
+                    }
+                });
+
+                // Función adicional para facilitar la búsqueda con caracteres parciales
+                function normalizeQuery(query) {
+                    // Normalizar la consulta para que sea más flexible
+                    return query.trim().toLowerCase();
+                }
     </script>        
 </body>
 </html>
