@@ -4171,6 +4171,11 @@
                     // Normalizar la consulta para que sea más flexible
                     return query.trim().toLowerCase();
                 }
+                    // Función para mostrar/ocultar respuestas de preguntas frecuentes
+                    function toggleAnswer(index) {
+                        const answers = document.querySelectorAll('.respuesta');
+                        answers[index].style.display = answers[index].style.display === 'none' ? 'block' : 'none';
+                        }
     </script>        
 </body>
 </html>
